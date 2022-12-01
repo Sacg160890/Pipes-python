@@ -1,0 +1,19 @@
+import pandas as pd
+df = pd.DataFrame()
+#create a column
+df['name'] = ['Damian','Sarah','Ray']
+df['employed']=['Yes','Yes','No']
+df['age'] = [32,29,19]
+
+#Create a function
+def mean_age_by_group(dataframe,col):
+
+    #groups the data by a column and return the mean age per group
+    return dataframe.groupby(col).mean()
+    def uppercase_column_name(dataframe):
+    dataframe.columns = dataframe.columns.str.upper()
+    return dataframe
+    
+    (df.pipe(mean_age_by_group,col='employed')
+ .pipe(uppercase_column_name)
+)
